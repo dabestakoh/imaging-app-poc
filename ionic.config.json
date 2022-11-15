@@ -1,0 +1,8 @@
+{
+  "name": "imaging-app-poc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "e2651dd6"
+}
