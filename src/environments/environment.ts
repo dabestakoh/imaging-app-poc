@@ -6,12 +6,9 @@ export const environment = {
   auth: {
     domain: "dev-imaging-app.us.auth0.com",
     clientId: "EvyEutFaIR2nyypobghkzfviKo3a29in",
-    audience: "https://express.sample",
-    
+    audience: "https://localhost:4200",
   },
-  dev: {
-    serverUrl: "http://localhost:4200"
-  },
+  serverUrl: "https://localhost:4200"
 };
 
 /*

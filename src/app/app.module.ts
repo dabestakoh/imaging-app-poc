@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { CapacitorConfig }from '../../capacitor.config';
+import { environment } from 'src/environments/environment';
 
 // Build the URL that Auth0 should redirect back to
 const redirectUriTest = `${CapacitorConfig.appId}://dev-imaging-app.us.auth0.com/capacitor/${CapacitorConfig.appId}/callback`;
@@ -21,9 +22,9 @@ const redirectUriTest = `${CapacitorConfig.appId}://dev-imaging-app.us.auth0.com
     IonicModule.forRoot(),
     AppRoutingModule,
     AuthModule.forRoot({
-      domain: "dev-imaging-app.us.auth0.com",
-      clientId: "EvyEutFaIR2nyypobghkzfviKo3a29in",
-      redirectUri: 'https://localhost:4200'
+      domain: environment.auth.domain,
+      clientId: environment.auth.clientId,
+      redirectUri: environment.serverUrl
     }),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

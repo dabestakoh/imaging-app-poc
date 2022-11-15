@@ -9,7 +9,6 @@
     <ion-row>
       <ion-col>
         <ion-button *ngIf="!isLoggedIn" (click)="login()">Login</ion-button>
-        <ion-button *ngIf="isLoggedIn" (click)="logout()">Log out</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -29,6 +28,11 @@
     <ion-row *ngIf="auth.user$ | async as user">
       <ion-col>
         <p>{{ user.email }}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button *ngIf="isLoggedIn" (click)="logout()">Log out</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
