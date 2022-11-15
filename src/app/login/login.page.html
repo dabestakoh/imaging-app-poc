@@ -1,18 +1,35 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Welcome</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="login()">Login</ion-button>
-  <ion-button (click)="logout()">Log out</ion-button>
-
-  <div *ngIf="auth.user$ | async as user">
-    <ion-avatar class="avatar">
-      <img [src]="user.picture" [alt]="user.name" />
-    </ion-avatar>
-    <h2>{{ user.name }}</h2>
-    <p>{{ user.email }}</p>
-  </div>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        <ion-button *ngIf="!isLoggedIn" (click)="login()">Login</ion-button>
+        <ion-button *ngIf="isLoggedIn" (click)="logout()">Log out</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="auth.user$ | async as user">
+          <ion-avatar class="avatar">
+            <img [src]="user.picture" [alt]="user.name" />
+          </ion-avatar>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="auth.user$ | async as user">
+      <ion-col>
+        <h3>Logged in as: {{ user.name }}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="auth.user$ | async as user">
+      <ion-col>
+        <p>{{ user.email }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
