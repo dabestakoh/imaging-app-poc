@@ -1,9 +1,17 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
+  production: false,
+  auth: {
+    domain: "dev-imaging-app.us.auth0.com",
+    clientId: "EvyEutFaIR2nyypobghkzfviKo3a29in",
+    audience: "https://express.sample",
+    
+  },
+  dev: {
+    serverUrl: "http://localhost:4200"
+  },
 };
 
 /*
