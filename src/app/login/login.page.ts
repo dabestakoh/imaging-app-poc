@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit() {
     this.auth.user$.subscribe(res => {
-      if (res){
+      if (res) {
         this.isLoggedIn = true;
       }
     });
@@ -32,8 +32,10 @@ export class LoginPage implements OnInit {
     this.auth
       .buildAuthorizeUrl()
       .pipe(mergeMap((url) => Browser.open({ url, windowName: '_self' })))
-      .subscribe();
-    this.isLoggedIn = true;
+      .subscribe(() => {
+        this.isLoggedIn = true;
+      });
+
   }
 
   logout() {
@@ -47,7 +49,7 @@ export class LoginPage implements OnInit {
           // Redirect to Auth0 using the Browser plugin, to clear the user's session
           this.isLoggedIn = false;
           sessionStorage.clear();
-          Browser.open({ url, windowName: '_self' })
+          Browser.open({ url, windowName: '_self' });
           // Browser.open({ url });
         })
       )
